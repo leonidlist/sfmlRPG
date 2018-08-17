@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++-7 -static -L/usr/lib/x86_64-linux-gnu main.cpp Enemy.cpp Entity.cpp Player.cpp Projectile.cpp Random.cpp TextDisplay.cpp TextDisplay.h Pickup.cpp Pickup.h Wall.cpp Wall.h Powerup.cpp Powerup.h Room.cpp Room.h Heal.cpp Heal.h Spell.hpp Spell.cpp -o main -lsfml-window -lsfml-system -lsfml-graphics -lsfml-audio -lsfml-network",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}

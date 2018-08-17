@@ -1,0 +1,110 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/leonid/Рабочий стол/rpgSFML/Enemy.cpp
+Enemy.h
+/home/leonid/Рабочий стол/rpgSFML/Enemy.h
+
+/home/leonid/Рабочий стол/rpgSFML/Enemy.h
+Entity.h
+/home/leonid/Рабочий стол/rpgSFML/Entity.h
+
+/home/leonid/Рабочий стол/rpgSFML/Entity.cpp
+Entity.h
+/home/leonid/Рабочий стол/rpgSFML/Entity.h
+
+/home/leonid/Рабочий стол/rpgSFML/Entity.h
+stdio.h
+-
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+iostream
+-
+random
+-
+cmath
+-
+cstdlib
+-
+functional
+-
+tgmath.h
+-
+deque
+-
+list
+-
+vector
+-
+unistd.h
+-
+
+/home/leonid/Рабочий стол/rpgSFML/Player.cpp
+Player.h
+/home/leonid/Рабочий стол/rpgSFML/Player.h
+
+/home/leonid/Рабочий стол/rpgSFML/Player.h
+Entity.h
+/home/leonid/Рабочий стол/rpgSFML/Entity.h
+
+/home/leonid/Рабочий стол/rpgSFML/Projectile.cpp
+Projectile.h
+/home/leonid/Рабочий стол/rpgSFML/Projectile.h
+
+/home/leonid/Рабочий стол/rpgSFML/Projectile.h
+Entity.h
+/home/leonid/Рабочий стол/rpgSFML/Entity.h
+
+/home/leonid/Рабочий стол/rpgSFML/Random.cpp
+Random.h
+/home/leonid/Рабочий стол/rpgSFML/Random.h
+
+/home/leonid/Рабочий стол/rpgSFML/Random.h
+stdio.h
+/home/leonid/Рабочий стол/rpgSFML/stdio.h
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+iostream
+-
+random
+-
+cmath
+-
+cstdlib
+-
+functional
+-
+tgmath.h
+-
+deque
+-
+list
+-
+vector
+-
+unistd.h
+-
+
+/home/leonid/Рабочий стол/rpgSFML/main.cpp
+SFML/Audio.hpp
+-
+SFML/Graphics.hpp
+-
+iostream
+-
+Player.h
+/home/leonid/Рабочий стол/rpgSFML/Player.h
+Projectile.h
+/home/leonid/Рабочий стол/rpgSFML/Projectile.h
+Enemy.h
+/home/leonid/Рабочий стол/rpgSFML/Enemy.h
+
