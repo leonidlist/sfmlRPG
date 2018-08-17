@@ -2,7 +2,7 @@
 // Created by leonid on 24.07.18.
 //
 
-#include "Player.h"
+#include "Player.hpp"
 
 Player::Player() {
     rect.setSize(sf::Vector2f(48,64));

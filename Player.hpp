@@ -1,15 +1,12 @@
-//
-// Created by leonid on 24.07.18.
-//
-
 #ifndef RPGSFML_PLAYER_H
 #define RPGSFML_PLAYER_H
 
-#include "Entity.h"
-#include "Spell.hpp"
+#include "Entity.hpp"
 
 class Player:public Entity {
 public:
+    int uniqueID;
+
     int movementSpeed = 3;
     int counterWalking = 0;
     int direction = 0; // 1 - up, 2 - down, 3 - left, 4 - right
@@ -30,7 +27,6 @@ public:
     void resetMoveLimits();
     void updateView(sf::View &v);
 
-    Spell echoSlam;
 };
 
 #endif //RPGSFML_PLAYER_H
