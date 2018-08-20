@@ -3,6 +3,10 @@
 #include <SFML/Network.hpp>
 #include "Player.hpp"
 
+enum packetTypes {
+    newFirstPlayer, newPlayer, updatePlayer
+};
+
 int main(int, char const**) {
 
     int counter = 0;
@@ -40,14 +44,17 @@ int main(int, char const**) {
     socket.connect(serverIP, 2241);
 
     bool done = false;
+    bool isFirstConnect = true;
 
     socket.setBlocking(true);
+
+    int packetType;
 
     while(!done) {
         socket.receive(packet);
         sf::Vector2f buffPos;
         int uniqueGeneratedID;
-        if(packet >> buffPos.x >> buffPos.y >> uniqueGeneratedID) {
+        if(packet >> packetType >> buffPos.x >> buffPos.y >> uniqueGeneratedID && packetType == 0) {
             mainPlayer.uniqueID = uniqueGeneratedID;
             mainPlayer.rect.setPosition(buffPos);
             mainPlayer.sprite.setTexture(textureCharacter);
@@ -55,6 +62,7 @@ int main(int, char const**) {
             done = true;
         }
         clientID = uniqueGeneratedID;
+        isFirstConnect = false;
     }
 
     //*************************** FONTS **************************************
@@ -106,6 +114,11 @@ int main(int, char const**) {
         if(prevPlayerPosition != playersOnServer[0].rect.getPosition()) {
             packet << playersOnServer[0].rect.getPosition().x << playersOnServer[0].rect.getPosition().y << clientID;
             socket.send(packet);
+            packet.clear();
+        }
+
+        if(packet) {
+            
         }
 
         window.display();

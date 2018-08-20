@@ -3,15 +3,26 @@
 #include <iostream>
 #include <vector>
 
+enum packetTypes {
+    newFirstPlayer, newPlayer, updatePlayer
+};
+
+void showConnectedTable(std::map<std::string, int> &ium);
+
 int main(int, char const**)
 {
     //Variables
-    int lastID = 20;
+    int lastID = 1;
     bool serverIsRunning = true;
+    int playersCounter = 0;
 
     //***************************** VECTOR ARRAYS ************************************
 
     std::vector<ServerPlayer>connectedPlayers;
+
+    //********************* MAP IP-UID ****************************
+
+    std::map<std::string, int>ipUIDMap;
 
     //********************* NETWORK *********************************
     sf::Packet packet;
@@ -24,20 +35,53 @@ int main(int, char const**)
     //******************************************* MAIN LOOP ****************************************************************************8
     sf::Vector2f receivedPosition;
     int receivedID;
+    int prev;
 
     while(serverIsRunning) {
         packet.clear();
-        std::cout << "Player on server: " << connectedPlayers.size() << std::endl;
 
-        if(listener.accept(socket) == sf::Socket::Done) {
+        if(listener.accept(socket) == sf::Socket::Done && playersCounter == 0) {
+            //Get ip address & get packet type
+            std::cout << "PACKET type: 0" << std::endl;
+            std::string remoteIP = socket.getRemoteAddress().toString();
+            //New player initialization
             ServerPlayer buff;
             buff.setPlayerPosition(sf::Vector2f(100, 100));
             buff.setUniqueID(lastID);
-            lastID++;
-            packet << buff.getPlayerPosition().x << buff.getPlayerPosition().y << buff.getUniqueID();
-            connectedPlayers.push_back(buff);
+            packet << newFirstPlayer << buff.getPlayerPosition().x << buff.getPlayerPosition().y << buff.getUniqueID();
             socket.send(packet);
-            socket.setBlocking(false);
+            //Add to server players.
+            connectedPlayers.push_back(buff);
+            ipUIDMap.insert(std::pair<std::string, int>(remoteIP, buff.getUniqueID()));
+            //Increase counters
+            lastID++;
+            playersCounter++;
+            showConnectedTable(ipUIDMap);
+        }
+
+        if(listener.accept(socket) == sf::Socket::Done && playersCounter > 0) {
+            //Get ip address & get packet type
+            std::cout << "PACKET type: 1" << std::endl;
+            std::string remoteIP = socket.getRemoteAddress().toString();
+            //New player initialization
+            ServerPlayer buff;
+            buff.setPlayerPosition(sf::Vector2f(100, 100));
+            buff.setUniqueID(lastID);
+            packet << newPlayer << buff.getPlayerPosition().x << buff.getPlayerPosition().y << buff.getUniqueID();
+            socket.send(packet);
+            //Add to server players
+            connectedPlayers.push_back(buff);
+            ipUIDMap.insert(std::pair<std::string, int>(remoteIP, buff.getUniqueID()));
+            //Increase counters
+            playersCounter++;
+            lastID++;
+            showConnectedTable(ipUIDMap);
+            // for(int i = 0; i < playersCounter; i++) {
+            //     packet.clear();
+            //     packet << newPlayer << buff.getPlayerPosition().x << buff.getPlayerPosition().y << buff.getUniqueID();
+            //     socket.send(packet);
+            // }
+            // socket.setBlocking(false);
         }
 
         if(packet && packet >> receivedPosition.x >> receivedPosition.y >> receivedID) {
@@ -50,4 +94,13 @@ int main(int, char const**)
     }
 
     return EXIT_SUCCESS;
+}
+
+void showConnectedTable(std::map<std::string, int> &ium) {
+    std::cout << "=================" << std::endl;
+    std::map<std::string, int>::iterator iter;
+    for(iter = ium.begin(); iter != ium.end(); iter++) {
+        std::cout << iter->first << " : " << iter->second << std::endl;
+    }
+    std::cout << "=================" << std::endl;
 }
