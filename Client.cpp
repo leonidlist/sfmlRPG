@@ -12,9 +12,7 @@ int main(int, char const**) {
     int counter = 0;
     sf::Clock clock1;
     int clientID;
-
     bool isFocused = true;
-
     Player mainPlayer;
 
     //**************************** TEXTURES **************************************
@@ -31,39 +29,26 @@ int main(int, char const**) {
 
     //**************** NETWORK ********************
 
-    sf::Packet packet;
     sf::TcpSocket socket;
 
     std::string ipBuff;
-
+    unsigned short serverPort;
     std::cout << "Input IP address of server: ";
     std::cin >> ipBuff;
-    std::cout << "INPUT IP IS > " << ipBuff << std::endl;
-
+    std::cout << "Input port of server: ";
+    std::cin >> serverPort;
     sf::IpAddress serverIP(ipBuff);
-    socket.connect(serverIP, 2241);
+
+    if(socket.connect(serverIP, serverPort) != sf::Socket::Done) {
+        std::cout << "Can't connect to server." << std::endl;
+        return 1;
+    }
+    std::cout << "Connected to server." << std::endl;
 
     bool done = false;
     bool isFirstConnect = true;
 
-    socket.setBlocking(true);
-
     int packetType;
-
-    while(!done) {
-        socket.receive(packet);
-        sf::Vector2f buffPos;
-        int uniqueGeneratedID;
-        if(packet >> packetType >> buffPos.x >> buffPos.y >> uniqueGeneratedID && packetType == 0) {
-            mainPlayer.uniqueID = uniqueGeneratedID;
-            mainPlayer.rect.setPosition(buffPos);
-            mainPlayer.sprite.setTexture(textureCharacter);
-            playersOnServer.push_back(mainPlayer);
-            done = true;
-        }
-        clientID = uniqueGeneratedID;
-        isFirstConnect = false;
-    }
 
     //*************************** FONTS **************************************
 
@@ -75,15 +60,38 @@ int main(int, char const**) {
     //Generating the main window
     sf::RenderWindow window(sf::VideoMode(1024, 680), "SFML window", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
+    window.setPosition(sf::Vector2i(0,0));
 
     //******************************************** UI TEXT *********************************************
 
     sf::Vector2f prevPlayerPosition;
+    sf::Vector2f buffPos;
+    int uniqueGeneratedID;
 
+    sf::Packet initPacket;
+    while(!done) {
+        if(socket.receive(initPacket) != sf::Socket::Done) {
+            std::cout << "W8ing for receive init packet..." << std::endl;
+            done = false;
+        }
+        if(initPacket && initPacket >> packetType >> buffPos.x >> buffPos.y >> uniqueGeneratedID) {
+            std::cout << "Init packet received" << std::endl;
+            std::cout << "Init packet data: " << std::endl;
+            std::cout << "\tPacket type: " << packetType << std::endl;
+            std::cout << "\tInit X position: " << buffPos.x << std::endl;
+            std::cout << "\tInit Y position: " << buffPos.y << std::endl;
+            std::cout << "\tInit UID: " << uniqueGeneratedID << std::endl;
+            mainPlayer.uniqueID = uniqueGeneratedID;
+            mainPlayer.rect.setPosition(buffPos);
+            mainPlayer.sprite.setTexture(textureCharacter);
+            playersOnServer.push_back(mainPlayer);
+            clientID = uniqueGeneratedID;
+            isFirstConnect = false;
+            done = true;
+        }
+    }
 
-    while(window.isOpen()) {
-        packet.clear();
-        
+    while(window.isOpen() && done) {
         prevPlayerPosition = playersOnServer[0].rect.getPosition();
 
         sf::Event event;
@@ -112,13 +120,14 @@ int main(int, char const**) {
         }
 
         if(prevPlayerPosition != playersOnServer[0].rect.getPosition()) {
-            packet << playersOnServer[0].rect.getPosition().x << playersOnServer[0].rect.getPosition().y << clientID;
-            socket.send(packet);
-            packet.clear();
-        }
-
-        if(packet) {
-            
+            sf::Packet packet;
+            packet << updatePlayer << playersOnServer[0].rect.getPosition().x << playersOnServer[0].rect.getPosition().y << clientID;
+            if(socket.send(packet) == sf::Socket::Done) {
+                int pt, uid;
+                sf::Vector2f pp;
+                packet >> pt >> pp.x >> pp.y >> uid;
+                std::cout << "Sent packet with data: " << pt << " " << pp.x << ":" << pp.y << " " << uid << std::endl;
+            }
         }
 
         window.display();
