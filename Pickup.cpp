@@ -1,4 +1,4 @@
-#include "Pickup.h"
+#include "Pickup.hpp"
 
 Pickup::Pickup() {
     rect.setSize(sf::Vector2f(16,16));

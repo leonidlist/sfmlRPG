@@ -2,14 +2,14 @@
 #define RPGSFML_VECTORS
 
 #include <vector>
-#include "Powerup.h"
-#include "Projectile.h"
-#include "Enemy.h"
-#include "Pickup.h"
-#include "Wall.h"
-#include "TextDisplay.h"
-#include "Heal.h"
-#include "Room.h"
+#include "Powerup.hpp"
+#include "Projectile.hpp"
+#include "Enemy.hpp"
+#include "Pickup.hpp"
+#include "Wall.hpp"
+#include "TextDisplay.hpp"
+#include "Heal.hpp"
+#include "Room.hpp"
 
 class Vectors {
     std::vector<Powerup> powerupVector;

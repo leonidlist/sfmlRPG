@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++-7 main.cpp Game.cpp Game.hpp Enemy.cpp Vectors.cpp Vectors.hpp Music.cpp Music.hpp Fonts.hpp Fonts.cpp Entity.cpp Player.cpp Projectile.cpp Random.cpp TextDisplay.cpp Textures.cpp Textures.hpp TextDisplay.h Pickup.cpp Pickup.h Wall.cpp Wall.h Powerup.cpp Powerup.h Room.cpp Room.h Heal.cpp Heal.h Spell.hpp Spell.cpp -o main -lsfml-window -lsfml-system -lsfml-graphics -lsfml-audio -lsfml-network",
+            "command": "g++-7 main.cpp Game.cpp Game.hpp Enemy.cpp Vectors.cpp Vectors.hpp Music.cpp Music.hpp Fonts.hpp Fonts.cpp Entity.cpp Player.cpp Projectile.cpp Random.cpp TextDisplay.cpp Textures.cpp Textures.hpp TextDisplay.hpp Pickup.cpp Pickup.hpp Wall.cpp Wall.hpp Powerup.cpp Powerup.hpp Room.cpp Room.hpp Heal.cpp Heal.hpp Spell.hpp Spell.cpp -o main -lsfml-window -lsfml-system -lsfml-graphics -lsfml-audio -lsfml-network",
             "group": {
                 "kind": "build",
                 "isDefault": true

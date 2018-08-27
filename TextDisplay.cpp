@@ -1,4 +1,4 @@
-#include "TextDisplay.h"
+#include "TextDisplay.hpp"
 
 TextDisplay::TextDisplay() {}
 

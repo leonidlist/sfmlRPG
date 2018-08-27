@@ -1,9 +1,8 @@
-#include "Powerup.h"
+#include "Powerup.hpp"
 
 Powerup::Powerup() {
     rect.setSize(sf::Vector2f(32,32));
     rect.setPosition(0,0);
-    // sprite.setTextureRect(sf::IntRect(0,0,32,32));
 }
 
 void Powerup::update() {

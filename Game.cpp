@@ -392,3 +392,211 @@ void Game::resetLimits() {
     if(canReset)
         player1.resetMoveLimits();
 }
+
+void Game::destroyPowerup() {
+    int counter = 0;
+    for(auto i = gameVectors.getPowerupVector().begin(); i != gameVectors.getPowerupVector().end(); i++) {
+        if(gameVectors.getPowerupVector()[counter].destroy == true) {
+            gameVectors.getPowerupVector().erase(i);
+            break;
+        }
+        counter++;
+    }
+}
+
+void Game::destroyWall() {
+    int counter = 0;
+    for(auto i = gameVectors.getWallVector().begin(); i != gameVectors.getWallVector().end(); i++) {
+        if(gameVectors.getWallVector()[counter].hp < 0) {
+            gameVectors.getWallVector().erase(i);
+            break;
+        }
+        counter++;
+    }
+}
+
+void Game::destroyCoin() {
+    int counter = 0;
+    for(auto i = gameVectors.getPickupVector().begin(); i != gameVectors.getPickupVector().end(); i++) {
+        if(gameVectors.getPickupVector()[counter].destroy == true) {
+            gameVectors.getPickupVector().erase(i);
+            break;
+        }
+        counter++;
+    }
+}
+
+void Game::destroyText() {
+    int counter = 0;
+    for(auto i = gameVectors.getTextDisplayVector().begin(); i != gameVectors.getTextDisplayVector().end(); i++) {
+        if(gameVectors.getTextDisplayVector()[counter].destroy == true) {
+            gameVectors.getTextDisplayVector().erase(i);
+            break;
+        }
+        counter++;
+    }
+}
+
+void Game::destroyEnemy() {
+    int counter = 0;
+    for(auto i = gameVectors.getEnemyVector().begin(); i != gameVectors.getEnemyVector().end(); i++) {
+        if(gameVectors.getEnemyVector()[counter].alive == false) {
+            if(generateRandom(5) == 4) {
+                coin.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition().x, gameVectors.getEnemyVector()[counter].rect.getPosition().y);
+                gameVectors.getPickupVector().push_back(coin);
+            }
+            if(generateRandom(10) == 5) {
+                powerup.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition());
+                gameVectors.getPowerupVector().push_back(powerup);
+            }
+            gameVectors.getEnemyVector().erase(i);
+            break;
+        }
+        counter++;
+    }
+}
+
+void Game::destroyProjectile() {
+    int counter = 0;
+    for(auto i = gameVectors.getProjectileVector().begin(); i != gameVectors.getProjectileVector().end(); i++) {
+        if(gameVectors.getProjectileVector()[counter].destroy == true) {
+            gameVectors.getProjectileVector().erase(i);
+            break;
+        }
+    }
+}
+
+void Game::fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused) {
+    if(elapsed1.asSeconds() >= 0.1 && isFocused) {
+        clock1.restart();
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+            projectile.direction = player1.direction;
+            projectile.rect.setPosition(player1.rect.getPosition().x+player1.rect.getSize().x/2 - projectile.rect.getSize().x/2, player1.rect.getPosition().y+player1.rect.getSize().y/2-projectile.rect.getSize().y/2);
+            projectile.sprite.setTextureRect(sf::IntRect(0,0,32,32));
+            gameVectors.getProjectileVector().push_back(projectile);
+            gameMusic.getShotSound().play();
+
+            if(player1.powerupLevel == 1) {
+                projectile.rect.setPosition(player1.rect.getPosition().x+player1.rect.getSize().x/2+16 - projectile.rect.getSize().x/2, player1.rect.getPosition().y+player1.rect.getSize().y/2+16 - projectile.rect.getSize().y/2);
+                gameVectors.getProjectileVector().push_back(projectile);
+            }
+
+            if(player1.powerupLevel >= 2) {
+                for(int i = 1; i <= 4; i++) {
+                    if(i == player1.direction) {
+                        continue;
+                    }
+                    projectile.direction = i;
+                    gameVectors.getProjectileVector().push_back(projectile);
+                }
+            }
+        }
+    }
+}
+
+void Game::aggro(sf::Clock& clock3, sf::Time& elapsed3) {
+    int counter = 0;
+    for(auto i = gameVectors.getEnemyVector().begin(); i != gameVectors.getEnemyVector().end(); i++) {
+        if(gameVectors.getEnemyVector()[counter].isAggro) {
+            if(std::abs(gameVectors.getEnemyVector()[counter].rect.getPosition().x - player1.rect.getPosition().x) >= 250 || std::abs(gameVectors.getEnemyVector()[counter].rect.getPosition().y - player1.rect.getPosition().y) >= 250) {
+                gameVectors.getEnemyVector()[counter].isAggro = false;
+                std::cout << "Enemy aggro: false" << std::endl;
+                continue;
+            }
+
+            if(elapsed3.asSeconds() >= 1) {
+                clock3.restart();
+                int enemyAction = generateRandom(3);
+
+                projectile.attackDamage = gameVectors.getEnemyVector()[counter].attackDamage;
+
+                if(enemyAction == 1) {
+                    if(player1.rect.getPosition().x < gameVectors.getEnemyVector()[counter].rect.getPosition().x && std::abs(player1.rect.getPosition().y - gameVectors.getEnemyVector()[counter].rect.getPosition().y) <= 40) {
+                        gameMusic.getShotSound().play();
+                        projectile.enemyProjectile = true;
+                        projectile.direction = 3;
+                        projectile.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition());
+                        gameVectors.getProjectileVector().push_back(projectile);
+                        projectile.enemyProjectile = false;
+
+                        gameVectors.getEnemyVector()[counter].direction = 3;
+                    }
+
+                    if(player1.rect.getPosition().x > gameVectors.getEnemyVector()[counter].rect.getPosition().x && std::abs(player1.rect.getPosition().y - gameVectors.getEnemyVector()[counter].rect.getPosition().y) <= 40) {
+                        gameMusic.getShotSound().play();
+                        projectile.enemyProjectile = true;
+                        projectile.direction = 4;
+                        projectile.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition());
+                        gameVectors.getProjectileVector().push_back(projectile);
+                        projectile.enemyProjectile = false;
+
+                        gameVectors.getEnemyVector()[counter].direction = 4;
+                    }
+
+                    if(player1.rect.getPosition().y < gameVectors.getEnemyVector()[counter].rect.getPosition().y && std::abs(player1.rect.getPosition().x - gameVectors.getEnemyVector()[counter].rect.getPosition().x) <= 40) {
+                        gameMusic.getShotSound().play();
+                        projectile.enemyProjectile = true;
+                        projectile.direction = 1;
+                        projectile.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition());
+                        gameVectors.getProjectileVector().push_back(projectile);
+                        projectile.enemyProjectile = false;
+
+                        gameVectors.getEnemyVector()[counter].direction = 1;
+                    }
+
+                    if(player1.rect.getPosition().y > gameVectors.getEnemyVector()[counter].rect.getPosition().y && std::abs(player1.rect.getPosition().x - gameVectors.getEnemyVector()[counter].rect.getPosition().x) <= 40) {
+                        gameMusic.getShotSound().play();
+                        projectile.enemyProjectile = true;
+                        projectile.direction = 2;
+                        projectile.rect.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition());
+                        gameVectors.getProjectileVector().push_back(projectile);
+                        projectile.enemyProjectile = false;
+
+                        gameVectors.getEnemyVector()[counter].direction = 2;
+                    }
+                }
+            }
+        }
+        counter++;
+    }
+}
+
+void Game::echoSlamCast(sf::Clock& echoSlamCoolDown, bool isFocused) {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q) && player1.echoSlam.readyToCast && isFocused) {
+        int counter = 0;
+        for(auto i = gameVectors.getEnemyVector().begin(); i != gameVectors.getEnemyVector().end(); i++) {
+            if(player1.rect.getPosition().x - gameVectors.getEnemyVector()[counter].rect.getPosition().x <= 300 && player1.rect.getPosition().x - gameVectors.getEnemyVector()[counter].rect.getPosition().x >= -300) {
+                if(player1.rect.getPosition().y - gameVectors.getEnemyVector()[counter].rect.getPosition().y <= 300 && player1.rect.getPosition().y - gameVectors.getEnemyVector()[counter].rect.getPosition().y >= -300) {
+                    gameMusic.getEchoSlamSound().play();
+                    textDisplay.text.setString("-" + std::to_string(player1.echoSlam.getDamage()));
+                    textDisplay.text.setPosition(gameVectors.getEnemyVector()[counter].rect.getPosition().x + 16, gameVectors.getEnemyVector()[counter].rect.getPosition().y - 16);
+                    textDisplay.text.setColor(sf::Color::Red);
+                    gameVectors.getTextDisplayVector().push_back(textDisplay);
+                    gameVectors.getEnemyVector()[counter].hp -= player1.echoSlam.getDamage();
+                    if(gameVectors.getEnemyVector()[counter].hp <= 0) {
+                        gameVectors.getEnemyVector()[counter].alive = false;
+                    }
+                }
+            }
+            counter++;
+        }
+        player1.echoSlam.readyToCast = false;
+        echoSlamCoolDown.restart();
+    }
+}
+
+void Game::checkEchoCastReady(sf::Clock& echoSlamCoolDown, bool isFocused) {
+    if(!player1.echoSlam.readyToCast && isFocused) {
+        if(echoSlamCoolDown.getElapsedTime().asSeconds() >= player1.echoSlam.getSpellCoolDown()) {
+            player1.echoSlam.readyToCast = true;
+        }
+    }
+}
+
+void Game::textManipulations() {
+    moneyText.setPosition(view.getCenter().x-300, view.getCenter().y-200);
+    moneyText.setString("Money: "+std::to_string(player1.money));
+    hpText.setPosition(view.getCenter().x-300, view.getCenter().y-180);
+    hpText.setString("HP: "+std::to_string(player1.hp));        
+    echoSlamSprite.setPosition(view.getCenter().x-300, view.getCenter().y-100);
+}

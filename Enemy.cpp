@@ -1,8 +1,4 @@
-//
-// Created by leonid on 24.07.18.
-//
-
-#include "Enemy.h"
+#include "Enemy.hpp"
 
 Enemy::Enemy(sf::Texture &texture, sf::Font &font) {
     rect.setSize(sf::Vector2f(32,32));

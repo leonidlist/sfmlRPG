@@ -1,4 +1,4 @@
-#include "Heal.h"
+#include "Heal.hpp"
 
 Heal::Heal(sf::Texture &texture, int x, int y, sf::Font &font) {
     rect.setSize(sf::Vector2f(16,16));

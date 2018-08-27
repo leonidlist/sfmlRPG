@@ -1,8 +1,4 @@
-//
-// Created by leonid on 24.07.18.
-//
-
-#include "Projectile.h"
+#include "Projectile.hpp"
 
 Projectile::Projectile() {
     rect.setSize(sf::Vector2f(15, 15));

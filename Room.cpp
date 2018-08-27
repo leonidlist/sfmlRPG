@@ -1,5 +1,5 @@
-#include "Room.h"
-#include "Wall.h"
+#include "Room.hpp"
+#include "Wall.hpp"
 
 Room::Room(int startX, int startY, std::vector<Wall> &arr) {
     this->startX = startX;

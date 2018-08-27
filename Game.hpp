@@ -10,11 +10,11 @@
 #include "Textures.hpp"
 #include "Vectors.hpp"
 
-#include "Player.h"
-#include "Powerup.h"
-#include "Pickup.h"
-#include "TextDisplay.h"
-#include "Projectile.h"
+#include "Player.hpp"
+#include "Powerup.hpp"
+#include "Pickup.hpp"
+#include "TextDisplay.hpp"
+#include "Projectile.hpp"
     
 class Game {
     Fonts gameFonts;
@@ -80,6 +80,20 @@ public:
     void projectileEnemyCollision();
     void wallProjectileCollision();
     void enemyPlayerCollision(sf::Clock clock2, sf::Time elapsed);
+
+    void destroyPowerup();
+    void destroyWall();
+    void destroyCoin();
+    void destroyText();
+    void destroyEnemy();
+    void destroyProjectile();
+
+    void fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused);
+    void aggro(sf::Clock& clock3, sf::Time& elapsed3);
+    void checkEchoCastReady(sf::Clock& echoSlamCoolDown, bool isFocused);
+    void echoSlamCast(sf::Clock& echoSlamCoolDown, bool isFocused);
+
+    void textManipulations();
 
     void resetLimits();
 };
