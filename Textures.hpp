@@ -1,7 +1,7 @@
 #ifndef RPGSFML_TEXTURES
 #define RPGSFML_TEXTURES
 
-#include <SFML/Graphics.hpp>
+#include "SFML/include/Graphics.hpp"
 
 class Textures {
     sf::Texture textureCharacter;

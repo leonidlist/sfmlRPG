@@ -1,7 +1,7 @@
 #ifndef RPGSFML_MUSIC
 #define RPGSFML_MUSIC
 
-#include <SFML/Audio.hpp>
+#include "SFML/include/Audio.hpp"
 
 class Music {
     sf::Music mainTheme;

@@ -1,13 +1,13 @@
 #include "Random.hpp"
 
 int generateRandom(int max) {
-    return std::rand() % (max-1) + 1;
+    return rand() % (max-1) + 1;
 }
 
 int generateRandom0(int max) {
-    return std::rand() % max;
+    return rand() % max;
 }
 
 bool generateRandomBool() {
-    return std::rand() % 1;
+    return rand() % 1;
 }

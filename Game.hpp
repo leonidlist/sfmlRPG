@@ -1,8 +1,8 @@
 #ifndef SFMLRPG_GAME
 #define SFMLRPG_GAME
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
+#include "SFML/include/Window.hpp"
+#include "SFML/include/Graphics.hpp"
 #include <vector>
 
 #include "Fonts.hpp"

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RPGSFML_HEAL
+#define RPGSFML_HEAL
 #include "Entity.hpp"
 
 class Heal:public Entity {
@@ -12,3 +13,4 @@ public:
     Heal(sf::Texture &texture, int x, int y, sf::Font &font);
     void update();
 };
+#endif

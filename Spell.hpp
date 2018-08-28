@@ -1,6 +1,7 @@
-#pragma once
+#ifndef RPGSFML_SPELL
+#define RPGSFML_SPELL
 
-#include <SFML/System.hpp>
+#include "SFML/include/System.hpp"
 
 class Spell {
     int spellCoolDown;
@@ -19,3 +20,4 @@ public:
     int getManaCost();
     int getDamage();
 };
+#endif
