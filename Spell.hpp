@@ -1,7 +1,7 @@
 #ifndef RPGSFML_SPELL
 #define RPGSFML_SPELL
 
-#include "SFML/include/System.hpp"
+#include <SFML/System.hpp>
 
 class Spell {
     int spellCoolDown;

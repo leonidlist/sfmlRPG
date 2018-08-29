@@ -36,7 +36,8 @@
         "type_traits": "cpp",
         "tuple": "cpp",
         "typeinfo": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "cinttypes": "cpp"
     },
     "cmake.configureOnOpen": true
 }

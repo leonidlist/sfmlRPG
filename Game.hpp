@@ -1,8 +1,9 @@
 #ifndef SFMLRPG_GAME
 #define SFMLRPG_GAME
 
-#include "SFML/include/Window.hpp"
-#include "SFML/include/Graphics.hpp"
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <vector>
 
 #include "Fonts.hpp"
@@ -79,7 +80,7 @@ public:
     void enemyProjectilePlayerCollision();
     void projectileEnemyCollision();
     void wallProjectileCollision();
-    void enemyPlayerCollision(sf::Clock clock2, sf::Time elapsed);
+    void enemyPlayerCollision(sf::Clock& clock2, sf::Time& elapsed);
 
     void destroyPowerup();
     void destroyWall();
@@ -88,12 +89,14 @@ public:
     void destroyEnemy();
     void destroyProjectile();
 
-    void fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused);
+    void fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused, sf::TcpSocket& skt);
     void aggro(sf::Clock& clock3, sf::Time& elapsed3);
     void checkEchoCastReady(sf::Clock& echoSlamCoolDown, bool isFocused);
     void echoSlamCast(sf::Clock& echoSlamCoolDown, bool isFocused);
 
     void textManipulations();
+
+    void checkEnemyAmount();
 
     void resetLimits();
 };

@@ -1,7 +1,7 @@
 #ifndef RPGSFML_TEXTURES
 #define RPGSFML_TEXTURES
 
-#include "SFML/include/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 class Textures {
     sf::Texture textureCharacter;
@@ -13,6 +13,7 @@ class Textures {
     sf::Texture wallTexture;
     sf::Texture boxTexture;
     sf::Texture echoSlamTexture;
+    sf::Texture tileTexture;
 
     public:
     Textures();
@@ -26,6 +27,7 @@ class Textures {
     sf::Texture& getWallTexture();
     sf::Texture& getBoxTexture();
     sf::Texture& getEchoSlamTexture();
+    sf::Texture& getTileTexture();
 };
 
 #endif

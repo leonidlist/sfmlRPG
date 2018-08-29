@@ -7,7 +7,7 @@
 class Player:public Entity {
 public:
     int movementSpeed = 3;
-    int counterWalking = 0;
+    double counterWalking = 0;
     int direction = 0; // 1 - up, 2 - down, 3 - left, 4 - right
     bool canMoveUp = true;
     bool canMoveDown = true;

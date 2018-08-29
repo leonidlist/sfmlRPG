@@ -4,9 +4,9 @@ Game::Game(sf::VideoMode vm, std::string name):window(vm, name) {
     window.setFramerateLimit(60);
 
     player1.sprite.setTexture(gameTextures.getTextureCharacter());
-    player1.rect.setPosition(300,300);
+    player1.rect.setPosition(400,400);
     player2.sprite.setTexture(gameTextures.getTextureCharacter());
-    player2.rect.setPosition(300,300);
+    player2.rect.setPosition(400,400);
 
     powerup.sprite.setTexture(gameTextures.getPowerupTexture());
     powerup.rect.setPosition(420,420);
@@ -21,21 +21,21 @@ Game::Game(sf::VideoMode vm, std::string name):window(vm, name) {
 
     textDisplay.text.setPosition(player1.rect.getPosition().x + 16, player1.rect.getPosition().y - 16);
     textDisplay.text.setFont(gameFonts.getTextFont());
-    textDisplay.text.setColor(sf::Color::Black);
+    textDisplay.text.setColor(sf::Color::White);
     textDisplay.text.setCharacterSize(16);
     textDisplay.text.setString(std::to_string(player1.hp));
     gameVectors.getTextDisplayVector().push_back(textDisplay);
 
     moneyText.setCharacterSize(18);
     moneyText.setFont(gameFonts.getTextFont());
-    moneyText.setColor(sf::Color::Black);
+    moneyText.setColor(sf::Color::White);
     moneyText.setPosition(window.getSize().x/2, 0);
 
     projectile.sprite.setTexture(gameTextures.getFireballTexture());
 
     hpText.setCharacterSize(18);
     hpText.setFont(gameFonts.getTextFont());
-    hpText.setColor(sf::Color::Black);
+    hpText.setColor(sf::Color::White);
     hpText.setPosition(window.getSize().x/2, 25);
 
     view.setSize(sf::Vector2f(window.getSize().x-100, window.getSize().y-100));
@@ -46,7 +46,7 @@ Game::Game(sf::VideoMode vm, std::string name):window(vm, name) {
 
     esCooldown.setFont(gameFonts.getTextFont());
     esCooldown.setCharacterSize(16);
-    esCooldown.setColor(sf::Color::Black);
+    esCooldown.setColor(sf::Color::White);
 }
 
 sf::RenderWindow& Game::getWindow() {
@@ -316,7 +316,7 @@ void Game::enemyProjectilePlayerCollision() {
             gameVectors.getProjectileVector()[counter].destroy = true;
             textDisplay.text.setString("-" + std::to_string(gameVectors.getProjectileVector()[counter].attackDamage));
             textDisplay.text.setPosition(player1.rect.getPosition().x + 20, player1.rect.getPosition().y - 20);
-            textDisplay.text.setColor(sf::Color::Black);
+            textDisplay.text.setColor(sf::Color::White);
             gameVectors.getTextDisplayVector().push_back(textDisplay);
             player1.hp -= gameVectors.getProjectileVector()[counter].attackDamage;
         }
@@ -364,13 +364,13 @@ void Game::wallProjectileCollision() {
     }
 }
 
-void Game::enemyPlayerCollision(sf::Clock clock2, sf::Time elapsed2) {
-    if(elapsed2.asSeconds() >= 0.42) {
+void Game::enemyPlayerCollision(sf::Clock& clock2, sf::Time& elapsed2) {
+    if(elapsed2.asSeconds() >= 0.5) {
         int counter = 0;
         clock2.restart();
         for(auto i = gameVectors.getEnemyVector().begin(); i != gameVectors.getEnemyVector().end(); i++) {
             if(gameVectors.getEnemyVector()[counter].rect.getGlobalBounds().intersects(player1.rect.getGlobalBounds())) {
-                textDisplay.text.setString(std::to_string(player1.hp));
+                textDisplay.text.setString("-"+std::to_string(gameVectors.getEnemyVector()[counter].attackDamage));
                 textDisplay.text.setPosition(player1.rect.getPosition().x + 16, player1.rect.getPosition().y - 16);
                 gameVectors.getTextDisplayVector().push_back(textDisplay);
                 player1.hp -= gameVectors.getEnemyVector()[counter].attackDamage;
@@ -466,12 +466,17 @@ void Game::destroyProjectile() {
     }
 }
 
-void Game::fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused) {
-    if(elapsed1.asSeconds() >= 0.1 && isFocused) {
+void Game::fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused, sf::TcpSocket& skt) {
+    if(elapsed1.asSeconds() >= 0.3 && isFocused) {
         clock1.restart();
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             projectile.direction = player1.direction;
             projectile.rect.setPosition(player1.rect.getPosition().x+player1.rect.getSize().x/2 - projectile.rect.getSize().x/2, player1.rect.getPosition().y+player1.rect.getSize().y/2-projectile.rect.getSize().y/2);
+            
+            sf::Packet packet;
+            packet << 1 << player1.direction << player1.rect.getPosition().x+player1.rect.getSize().x/2 - projectile.rect.getSize().x/2 << player1.rect.getPosition().y+player1.rect.getSize().y/2-projectile.rect.getSize().y/2;
+            skt.send(packet);
+
             projectile.sprite.setTextureRect(sf::IntRect(0,0,32,32));
             gameVectors.getProjectileVector().push_back(projectile);
             gameMusic.getShotSound().play();
@@ -504,9 +509,9 @@ void Game::aggro(sf::Clock& clock3, sf::Time& elapsed3) {
                 continue;
             }
 
-            if(elapsed3.asSeconds() >= 1) {
+            if(elapsed3.asSeconds() >= 0.5) {
                 clock3.restart();
-                int enemyAction = generateRandom(3);
+                int enemyAction = 1;
 
                 projectile.attackDamage = gameVectors.getEnemyVector()[counter].attackDamage;
 
@@ -573,6 +578,7 @@ void Game::echoSlamCast(sf::Clock& echoSlamCoolDown, bool isFocused) {
                     textDisplay.text.setColor(sf::Color::Red);
                     gameVectors.getTextDisplayVector().push_back(textDisplay);
                     gameVectors.getEnemyVector()[counter].hp -= player1.echoSlam.getDamage();
+                    gameVectors.getEnemyVector()[counter].isAggro = true;
                     if(gameVectors.getEnemyVector()[counter].hp <= 0) {
                         gameVectors.getEnemyVector()[counter].alive = false;
                     }
@@ -599,4 +605,13 @@ void Game::textManipulations() {
     hpText.setPosition(view.getCenter().x-300, view.getCenter().y-180);
     hpText.setString("HP: "+std::to_string(player1.hp));        
     echoSlamSprite.setPosition(view.getCenter().x-300, view.getCenter().y-100);
+}
+
+void Game::checkEnemyAmount() {
+    if(gameVectors.getEnemyVector().size() < 10) {
+        Enemy::spawnEnemies(6, gameVectors.getRoomVector()[0], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
+        Enemy::spawnEnemies(6, gameVectors.getRoomVector()[1], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
+        Enemy::spawnEnemies(6, gameVectors.getRoomVector()[2], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
+        Enemy::spawnEnemies(6, gameVectors.getRoomVector()[3], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
+    }
 }

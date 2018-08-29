@@ -19,6 +19,8 @@ Textures::Textures() {
         throw std::runtime_error("Cannot load texture.");
     if(!echoSlamTexture.loadFromFile("echoSlam.png"))
         throw std::runtime_error("Cannot load texture.");
+    if(!tileTexture.loadFromFile("tile.png"))
+        throw std::runtime_error("Cannot load texture.");
 }
 
 sf::Texture& Textures::getTextureCharacter() {

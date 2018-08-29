@@ -7,9 +7,9 @@ Enemy::Enemy(sf::Texture &texture, sf::Font &font) {
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0,0,32,32));
     text.setFont(font);
-    text.setPosition(rect.getPosition().x, rect.getPosition().y-45);
+    text.setPosition(rect.getPosition().x, (rect.getPosition().y-65));
     text.setCharacterSize(14);
-    text.setColor(sf::Color::Black);
+    text.setColor(sf::Color::White);
     text.setString("HP: " + std::to_string(hp));
 }
 

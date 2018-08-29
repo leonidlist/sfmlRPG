@@ -8,7 +8,7 @@ Heal::Heal(sf::Texture &texture, int x, int y, sf::Font &font) {
     sprite.setTextureRect(sf::IntRect(0,0,16,16));
     text.setString("Price: " + std::to_string(price));
     text.setFont(font);
-    text.setColor(sf::Color::Black);
+    text.setColor(sf::Color::White);
     text.setCharacterSize(18);
     text.setPosition(rect.getPosition().x, rect.getPosition().y-25);
 }

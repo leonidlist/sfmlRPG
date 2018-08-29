@@ -2,8 +2,8 @@
 #define RPGSFML_ENTITY_H
 
 #include <stdio.h>
-#include "SFML/include/Graphics.hpp"
-#include "SFML/include/Audio.hpp"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <random>
 #include <cmath>

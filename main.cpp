@@ -1,9 +1,8 @@
-#include "SFML/include/Audio.hpp"
-#include "SFML/include/Graphics.hpp"
-#include "SFML/include/Network.hpp"
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
 #include <iostream>
 #include <vector>
-
 #include "Game.hpp"
 
 int main(int, char const**)
@@ -21,12 +20,13 @@ int main(int, char const**)
     sf::Packet packet;
     sf::IpAddress ip;
     sf::TcpSocket socket;
+    sf::TcpListener listener;
     char connectionType;
     std::cout << "Enter (s) for server, enter (c) for client >> ";
     std::cin >> connectionType;
+    unsigned short port = 35000;
     if(connectionType == 's') {
-        sf::TcpListener listener;
-        listener.listen(2241);
+        listener.listen(port);
         listener.accept(socket);
     }
     else {
@@ -34,12 +34,16 @@ int main(int, char const**)
         std::string ipBuff;
         std::cin >> ipBuff;
         ip = sf::IpAddress(ipBuff);
-        socket.connect(ip, 2241);
+        socket.connect(ip, port);
     }
     socket.setBlocking(false);
 
     Game MAINGAME(sf::VideoMode(1024, 840), "MAIN");
     MAINGAME.generateLocation();
+    sf::Image icon;
+    if(!icon.loadFromFile("icon.png"))
+        return EXIT_FAILURE;
+    MAINGAME.getWindow().setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
     //**************************** GENERATING MAIN GAMEPLAY OBJECTS **********************************
 
@@ -78,7 +82,7 @@ int main(int, char const**)
             }
         }
 
-        MAINGAME.getWindow().clear(sf::Color::White);
+        MAINGAME.getWindow().clear(sf::Color::Black);
 
         MAINGAME.drawWalls();
         MAINGAME.drawPlayers();
@@ -110,7 +114,7 @@ int main(int, char const**)
         MAINGAME.destroyProjectile();
         //************************************** OTHER **********************************************
 
-        MAINGAME.fire(clock1, elapsed1, isFocused);
+        MAINGAME.fire(clock1, elapsed1, isFocused, socket);
         MAINGAME.checkEchoCastReady(echoSlamCoolDown, isFocused);
         MAINGAME.echoSlamCast(echoSlamCoolDown, isFocused);
         MAINGAME.textManipulations();
@@ -131,18 +135,40 @@ int main(int, char const**)
         }
 
         if(prevPosition != MAINGAME.getPlayer1().rect.getPosition()) {
-            packet << MAINGAME.getPlayer1().rect.getPosition().x << MAINGAME.getPlayer1().rect.getPosition().y;
+            packet << 0 << MAINGAME.getPlayer1().rect.getPosition().x << MAINGAME.getPlayer1().rect.getPosition().y;
             socket.send(packet);
         }
-        socket.receive(packet);
-        if(packet >> buffPos.x >> buffPos.y) {
+
+        packet.clear();
+        int t;
+        if(socket.receive(packet) == sf::Socket::Done) {
+            packet >> t;
+        }
+        int dir;
+        if(t == 0) {
+            std::cout << "READ 0: " << buffPos.x << " " << buffPos.x << std::endl;
+            packet >> buffPos.x >> buffPos.y;
             MAINGAME.getPlayer2().rect.setPosition(buffPos);
             MAINGAME.getPlayer2().update();
             MAINGAME.getPlayer2().updateMovement();
         }
+        if(t == 1) {
+            packet >> dir >> buffPos.x >> buffPos.y;
+            std::cout << "READ 1: " << dir << " " << buffPos.x << " " <<  buffPos.x << std::endl;
+            Projectile buff;
+            buff.direction = dir;
+            buff.rect.setPosition(buffPos);
+            buff.sprite.setTexture(MAINGAME.getTextures().getFireballTexture());
+            buff.sprite.setTextureRect(sf::IntRect(0,0,32,32));
+            MAINGAME.getVectors().getProjectileVector().push_back(buff);
+        }
+
+        MAINGAME.checkEnemyAmount();
 
         MAINGAME.getView().setCenter(MAINGAME.getPlayer1().rect.getPosition());
         MAINGAME.getWindow().display();
+        packet.clear();
+        t = -1;
     }
     return EXIT_SUCCESS;
 }

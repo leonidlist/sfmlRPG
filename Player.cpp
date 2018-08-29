@@ -1,7 +1,3 @@
-//
-// Created by leonid on 24.07.18.
-//
-
 #include "Player.hpp"
 
 Player::Player() {
@@ -24,33 +20,33 @@ void Player::updateMovement() {
         direction = 1;
         if(counterWalking > 2)
             counterWalking = 0;
-        sprite.setTextureRect(sf::IntRect(counterWalking * 48,0,48,64));
+        sprite.setTextureRect(sf::IntRect((int)counterWalking * 48,0,48,64));
         rect.move(0,-movementSpeed);
-        counterWalking++;
+        counterWalking+=0.3;
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) && canMoveDown) {
         direction = 2;
         if(counterWalking > 2)
             counterWalking = 0;
-        sprite.setTextureRect(sf::IntRect(counterWalking * 48,128,48,64));
+        sprite.setTextureRect(sf::IntRect((int)counterWalking * 48,128,48,64));
         rect.move(0,movementSpeed);
-        counterWalking++;
+        counterWalking+=0.3;
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) && canMoveLeft) {
         direction = 3;
         if(counterWalking > 2)
             counterWalking = 0;
-        sprite.setTextureRect(sf::IntRect(counterWalking * 48,192,48,64));
+        sprite.setTextureRect(sf::IntRect((int)counterWalking * 48,192,48,64));
         rect.move(-movementSpeed, 0);
-        counterWalking++;
+        counterWalking+=0.3;
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) && canMoveRight) {
         direction = 4;
         if(counterWalking > 2)
             counterWalking = 0;
-        sprite.setTextureRect(sf::IntRect(counterWalking * 48,64,48,64));
+        sprite.setTextureRect(sf::IntRect((int)counterWalking * 48,64,48,64));
         rect.move(movementSpeed,0);
-        counterWalking++;
+        counterWalking+=0.3;
     }
     movementSpeed = 2;
 }

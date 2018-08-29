@@ -1,7 +1,7 @@
 #ifndef RPGSFML_FONTS
 #define RPGSFML_FONTS
 
-#include "SFML/include/Graphics/Font.hpp"
+#include <SFML/Graphics/Font.hpp>
 
 class Fonts {
     sf::Font textFont;
