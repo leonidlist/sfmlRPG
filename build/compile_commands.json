@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/leonid/Рабочий стол/rpgSFML/build",
-  "command": "/usr/bin/g++-7     -g   -o CMakeFiles/rpgsfml.dir/main.cpp.o -c \"/home/leonid/Рабочий стол/rpgSFML/main.cpp\"",
-  "file": "/home/leonid/Рабочий стол/rpgSFML/main.cpp"
-}
-]

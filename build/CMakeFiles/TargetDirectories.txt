@@ -1,34 +1,3 @@
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/package.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/test.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/rebuild_cache.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousSubmit.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousMemCheck.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousConfigure.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/rpgsfml.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalSubmit.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalMemCheck.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalTest.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyUpdate.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyStart.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyMemoryCheck.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyBuild.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalUpdate.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousBuild.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/Continuous.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/Experimental.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/package_source.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalConfigure.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/edit_cache.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyTest.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyCoverage.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalCoverage.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyMemCheck.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousStart.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlySubmit.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousCoverage.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/Nightly.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/NightlyConfigure.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalStart.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousTest.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ContinuousUpdate.dir
-/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/ExperimentalBuild.dir
+/home/leonid/rpgSFML/build/CMakeFiles/edit_cache.dir
+/home/leonid/rpgSFML/build/CMakeFiles/rpgsfml.dir
+/home/leonid/rpgSFML/build/CMakeFiles/rebuild_cache.dir

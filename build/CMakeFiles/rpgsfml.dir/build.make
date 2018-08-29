@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/leonid/Рабочий стол/rpgSFML"
+CMAKE_SOURCE_DIR = /home/leonid/rpgSFML
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/leonid/Рабочий стол/rpgSFML/build"
+CMAKE_BINARY_DIR = /home/leonid/rpgSFML/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rpgsfml.dir/depend.make
@@ -57,18 +57,282 @@ include CMakeFiles/rpgsfml.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/rpgsfml.dir/flags.make
 
+CMakeFiles/rpgsfml.dir/Random.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Random.cpp.o: ../Random.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rpgsfml.dir/Random.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Random.cpp.o -c /home/leonid/rpgSFML/Random.cpp
+
+CMakeFiles/rpgsfml.dir/Random.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Random.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Random.cpp > CMakeFiles/rpgsfml.dir/Random.cpp.i
+
+CMakeFiles/rpgsfml.dir/Random.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Random.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Random.cpp -o CMakeFiles/rpgsfml.dir/Random.cpp.s
+
+CMakeFiles/rpgsfml.dir/Random.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Random.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Random.cpp.o.provides: CMakeFiles/rpgsfml.dir/Random.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Random.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Random.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Random.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Random.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Entity.cpp.o: ../Entity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/rpgsfml.dir/Entity.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Entity.cpp.o -c /home/leonid/rpgSFML/Entity.cpp
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Entity.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Entity.cpp > CMakeFiles/rpgsfml.dir/Entity.cpp.i
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Entity.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Entity.cpp -o CMakeFiles/rpgsfml.dir/Entity.cpp.s
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Entity.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.o.provides: CMakeFiles/rpgsfml.dir/Entity.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Entity.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Entity.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Entity.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Entity.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Spell.cpp.o: ../Spell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/rpgsfml.dir/Spell.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Spell.cpp.o -c /home/leonid/rpgSFML/Spell.cpp
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Spell.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Spell.cpp > CMakeFiles/rpgsfml.dir/Spell.cpp.i
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Spell.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Spell.cpp -o CMakeFiles/rpgsfml.dir/Spell.cpp.s
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Spell.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.o.provides: CMakeFiles/rpgsfml.dir/Spell.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Spell.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Spell.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Spell.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Spell.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Powerup.cpp.o: ../Powerup.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/rpgsfml.dir/Powerup.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Powerup.cpp.o -c /home/leonid/rpgSFML/Powerup.cpp
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Powerup.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Powerup.cpp > CMakeFiles/rpgsfml.dir/Powerup.cpp.i
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Powerup.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Powerup.cpp -o CMakeFiles/rpgsfml.dir/Powerup.cpp.s
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Powerup.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.o.provides: CMakeFiles/rpgsfml.dir/Powerup.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Powerup.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Powerup.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Powerup.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Powerup.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Fonts.cpp.o: ../Fonts.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/rpgsfml.dir/Fonts.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Fonts.cpp.o -c /home/leonid/rpgSFML/Fonts.cpp
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Fonts.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Fonts.cpp > CMakeFiles/rpgsfml.dir/Fonts.cpp.i
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Fonts.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Fonts.cpp -o CMakeFiles/rpgsfml.dir/Fonts.cpp.s
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Fonts.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.o.provides: CMakeFiles/rpgsfml.dir/Fonts.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Fonts.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Fonts.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Fonts.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Fonts.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Player.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Player.cpp.o: ../Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/rpgsfml.dir/Player.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Player.cpp.o -c /home/leonid/rpgSFML/Player.cpp
+
+CMakeFiles/rpgsfml.dir/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Player.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Player.cpp > CMakeFiles/rpgsfml.dir/Player.cpp.i
+
+CMakeFiles/rpgsfml.dir/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Player.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Player.cpp -o CMakeFiles/rpgsfml.dir/Player.cpp.s
+
+CMakeFiles/rpgsfml.dir/Player.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Player.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Player.cpp.o.provides: CMakeFiles/rpgsfml.dir/Player.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Player.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Player.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Player.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Player.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Pickup.cpp.o: ../Pickup.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/rpgsfml.dir/Pickup.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Pickup.cpp.o -c /home/leonid/rpgSFML/Pickup.cpp
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Pickup.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Pickup.cpp > CMakeFiles/rpgsfml.dir/Pickup.cpp.i
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Pickup.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Pickup.cpp -o CMakeFiles/rpgsfml.dir/Pickup.cpp.s
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Pickup.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.o.provides: CMakeFiles/rpgsfml.dir/Pickup.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Pickup.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Pickup.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Pickup.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Pickup.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Enemy.cpp.o: ../Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rpgsfml.dir/Enemy.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Enemy.cpp.o -c /home/leonid/rpgSFML/Enemy.cpp
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Enemy.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Enemy.cpp > CMakeFiles/rpgsfml.dir/Enemy.cpp.i
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Enemy.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Enemy.cpp -o CMakeFiles/rpgsfml.dir/Enemy.cpp.s
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Enemy.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.o.provides: CMakeFiles/rpgsfml.dir/Enemy.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Enemy.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Enemy.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Enemy.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Enemy.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Wall.cpp.o: ../Wall.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/rpgsfml.dir/Wall.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Wall.cpp.o -c /home/leonid/rpgSFML/Wall.cpp
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Wall.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Wall.cpp > CMakeFiles/rpgsfml.dir/Wall.cpp.i
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Wall.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Wall.cpp -o CMakeFiles/rpgsfml.dir/Wall.cpp.s
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Wall.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.o.provides: CMakeFiles/rpgsfml.dir/Wall.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Wall.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Wall.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Wall.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Wall.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Room.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Room.cpp.o: ../Room.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/rpgsfml.dir/Room.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Room.cpp.o -c /home/leonid/rpgSFML/Room.cpp
+
+CMakeFiles/rpgsfml.dir/Room.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Room.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Room.cpp > CMakeFiles/rpgsfml.dir/Room.cpp.i
+
+CMakeFiles/rpgsfml.dir/Room.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Room.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Room.cpp -o CMakeFiles/rpgsfml.dir/Room.cpp.s
+
+CMakeFiles/rpgsfml.dir/Room.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Room.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Room.cpp.o.provides: CMakeFiles/rpgsfml.dir/Room.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Room.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Room.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Room.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Room.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Textures.cpp.o: ../Textures.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/rpgsfml.dir/Textures.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Textures.cpp.o -c /home/leonid/rpgSFML/Textures.cpp
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Textures.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Textures.cpp > CMakeFiles/rpgsfml.dir/Textures.cpp.i
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Textures.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Textures.cpp -o CMakeFiles/rpgsfml.dir/Textures.cpp.s
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Textures.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.o.provides: CMakeFiles/rpgsfml.dir/Textures.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Textures.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Textures.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Textures.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Textures.cpp.o
+
+
 CMakeFiles/rpgsfml.dir/main.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
 CMakeFiles/rpgsfml.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rpgsfml.dir/main.cpp.o"
-	/usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/main.cpp.o -c "/home/leonid/Рабочий стол/rpgSFML/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/rpgsfml.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/main.cpp.o -c /home/leonid/rpgSFML/main.cpp
 
 CMakeFiles/rpgsfml.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/main.cpp.i"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/leonid/Рабочий стол/rpgSFML/main.cpp" > CMakeFiles/rpgsfml.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/main.cpp > CMakeFiles/rpgsfml.dir/main.cpp.i
 
 CMakeFiles/rpgsfml.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/main.cpp.s"
-	/usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/leonid/Рабочий стол/rpgSFML/main.cpp" -o CMakeFiles/rpgsfml.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/main.cpp -o CMakeFiles/rpgsfml.dir/main.cpp.s
 
 CMakeFiles/rpgsfml.dir/main.cpp.o.requires:
 
@@ -81,17 +345,200 @@ CMakeFiles/rpgsfml.dir/main.cpp.o.provides: CMakeFiles/rpgsfml.dir/main.cpp.o.re
 CMakeFiles/rpgsfml.dir/main.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/main.cpp.o
 
 
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o: ../TextDisplay.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o -c /home/leonid/rpgSFML/TextDisplay.cpp
+
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/TextDisplay.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/TextDisplay.cpp > CMakeFiles/rpgsfml.dir/TextDisplay.cpp.i
+
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/TextDisplay.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/TextDisplay.cpp -o CMakeFiles/rpgsfml.dir/TextDisplay.cpp.s
+
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.provides: CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Game.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Game.cpp.o: ../Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/rpgsfml.dir/Game.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Game.cpp.o -c /home/leonid/rpgSFML/Game.cpp
+
+CMakeFiles/rpgsfml.dir/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Game.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Game.cpp > CMakeFiles/rpgsfml.dir/Game.cpp.i
+
+CMakeFiles/rpgsfml.dir/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Game.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Game.cpp -o CMakeFiles/rpgsfml.dir/Game.cpp.s
+
+CMakeFiles/rpgsfml.dir/Game.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Game.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Game.cpp.o.provides: CMakeFiles/rpgsfml.dir/Game.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Game.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Game.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Game.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Game.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Music.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Music.cpp.o: ../Music.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/rpgsfml.dir/Music.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Music.cpp.o -c /home/leonid/rpgSFML/Music.cpp
+
+CMakeFiles/rpgsfml.dir/Music.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Music.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Music.cpp > CMakeFiles/rpgsfml.dir/Music.cpp.i
+
+CMakeFiles/rpgsfml.dir/Music.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Music.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Music.cpp -o CMakeFiles/rpgsfml.dir/Music.cpp.s
+
+CMakeFiles/rpgsfml.dir/Music.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Music.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Music.cpp.o.provides: CMakeFiles/rpgsfml.dir/Music.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Music.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Music.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Music.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Music.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Projectile.cpp.o: ../Projectile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/rpgsfml.dir/Projectile.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Projectile.cpp.o -c /home/leonid/rpgSFML/Projectile.cpp
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Projectile.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Projectile.cpp > CMakeFiles/rpgsfml.dir/Projectile.cpp.i
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Projectile.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Projectile.cpp -o CMakeFiles/rpgsfml.dir/Projectile.cpp.s
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Projectile.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.o.provides: CMakeFiles/rpgsfml.dir/Projectile.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Projectile.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Projectile.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Projectile.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Projectile.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Heal.cpp.o: ../Heal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/rpgsfml.dir/Heal.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Heal.cpp.o -c /home/leonid/rpgSFML/Heal.cpp
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Heal.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Heal.cpp > CMakeFiles/rpgsfml.dir/Heal.cpp.i
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Heal.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Heal.cpp -o CMakeFiles/rpgsfml.dir/Heal.cpp.s
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Heal.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.o.provides: CMakeFiles/rpgsfml.dir/Heal.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Heal.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Heal.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Heal.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Heal.cpp.o
+
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.o: CMakeFiles/rpgsfml.dir/flags.make
+CMakeFiles/rpgsfml.dir/Vectors.cpp.o: ../Vectors.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/rpgsfml.dir/Vectors.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpgsfml.dir/Vectors.cpp.o -c /home/leonid/rpgSFML/Vectors.cpp
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpgsfml.dir/Vectors.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leonid/rpgSFML/Vectors.cpp > CMakeFiles/rpgsfml.dir/Vectors.cpp.i
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpgsfml.dir/Vectors.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leonid/rpgSFML/Vectors.cpp -o CMakeFiles/rpgsfml.dir/Vectors.cpp.s
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.o.requires:
+
+.PHONY : CMakeFiles/rpgsfml.dir/Vectors.cpp.o.requires
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.o.provides: CMakeFiles/rpgsfml.dir/Vectors.cpp.o.requires
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Vectors.cpp.o.provides.build
+.PHONY : CMakeFiles/rpgsfml.dir/Vectors.cpp.o.provides
+
+CMakeFiles/rpgsfml.dir/Vectors.cpp.o.provides.build: CMakeFiles/rpgsfml.dir/Vectors.cpp.o
+
+
 # Object files for target rpgsfml
 rpgsfml_OBJECTS = \
-"CMakeFiles/rpgsfml.dir/main.cpp.o"
+"CMakeFiles/rpgsfml.dir/Random.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Entity.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Spell.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Powerup.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Fonts.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Player.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Pickup.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Enemy.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Wall.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Room.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Textures.cpp.o" \
+"CMakeFiles/rpgsfml.dir/main.cpp.o" \
+"CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Game.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Music.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Projectile.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Heal.cpp.o" \
+"CMakeFiles/rpgsfml.dir/Vectors.cpp.o"
 
 # External object files for target rpgsfml
 rpgsfml_EXTERNAL_OBJECTS =
 
+rpgsfml: CMakeFiles/rpgsfml.dir/Random.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Entity.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Spell.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Powerup.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Fonts.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Player.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Pickup.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Enemy.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Wall.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Room.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Textures.cpp.o
 rpgsfml: CMakeFiles/rpgsfml.dir/main.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Game.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Music.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Projectile.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Heal.cpp.o
+rpgsfml: CMakeFiles/rpgsfml.dir/Vectors.cpp.o
 rpgsfml: CMakeFiles/rpgsfml.dir/build.make
+rpgsfml: /usr/lib/x86_64-linux-gnu/libsfml-audio.so
+rpgsfml: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
+rpgsfml: /usr/lib/x86_64-linux-gnu/libsfml-network.so
+rpgsfml: /usr/lib/x86_64-linux-gnu/libsfml-system.so
+rpgsfml: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 rpgsfml: CMakeFiles/rpgsfml.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable rpgsfml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leonid/rpgSFML/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable rpgsfml"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rpgsfml.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -99,7 +546,24 @@ CMakeFiles/rpgsfml.dir/build: rpgsfml
 
 .PHONY : CMakeFiles/rpgsfml.dir/build
 
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Random.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Entity.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Spell.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Powerup.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Fonts.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Player.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Pickup.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Enemy.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Wall.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Room.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Textures.cpp.o.requires
 CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/main.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Game.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Music.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Projectile.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Heal.cpp.o.requires
+CMakeFiles/rpgsfml.dir/requires: CMakeFiles/rpgsfml.dir/Vectors.cpp.o.requires
 
 .PHONY : CMakeFiles/rpgsfml.dir/requires
 
@@ -108,6 +572,6 @@ CMakeFiles/rpgsfml.dir/clean:
 .PHONY : CMakeFiles/rpgsfml.dir/clean
 
 CMakeFiles/rpgsfml.dir/depend:
-	cd "/home/leonid/Рабочий стол/rpgSFML/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/leonid/Рабочий стол/rpgSFML" "/home/leonid/Рабочий стол/rpgSFML" "/home/leonid/Рабочий стол/rpgSFML/build" "/home/leonid/Рабочий стол/rpgSFML/build" "/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/rpgsfml.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/leonid/rpgSFML/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/leonid/rpgSFML /home/leonid/rpgSFML /home/leonid/rpgSFML/build /home/leonid/rpgSFML/build /home/leonid/rpgSFML/build/CMakeFiles/rpgsfml.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rpgsfml.dir/depend
 

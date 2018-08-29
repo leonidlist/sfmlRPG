@@ -48,57 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/leonid/Рабочий стол/rpgSFML"
+CMAKE_SOURCE_DIR = /home/leonid/rpgSFML
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/leonid/Рабочий стол/rpgSFML/build"
+CMAKE_BINARY_DIR = /home/leonid/rpgSFML/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/usr/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-
-.PHONY : package/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/leonid/Рабочий\ стол/rpgSFML/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -111,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles" "/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonid/rpgSFML/build/CMakeFiles /home/leonid/rpgSFML/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/leonid/Рабочий стол/rpgSFML/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leonid/rpgSFML/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -144,45 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ContinuousSubmit
-
-# Build rule for target.
-ContinuousSubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousSubmit
-.PHONY : ContinuousSubmit
-
-# fast build rule for target.
-ContinuousSubmit/fast:
-	$(MAKE) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
-.PHONY : ContinuousSubmit/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousMemCheck
-
-# Build rule for target.
-ContinuousMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousMemCheck
-.PHONY : ContinuousMemCheck
-
-# fast build rule for target.
-ContinuousMemCheck/fast:
-	$(MAKE) -f CMakeFiles/ContinuousMemCheck.dir/build.make CMakeFiles/ContinuousMemCheck.dir/build
-.PHONY : ContinuousMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousConfigure
-
-# Build rule for target.
-ContinuousConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousConfigure
-.PHONY : ContinuousConfigure
-
-# fast build rule for target.
-ContinuousConfigure/fast:
-	$(MAKE) -f CMakeFiles/ContinuousConfigure.dir/build.make CMakeFiles/ContinuousConfigure.dir/build
-.PHONY : ContinuousConfigure/fast
-
-#=============================================================================
 # Target rules for targets named rpgsfml
 
 # Build rule for target.
@@ -195,330 +123,464 @@ rpgsfml/fast:
 	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/build
 .PHONY : rpgsfml/fast
 
-#=============================================================================
-# Target rules for targets named ExperimentalSubmit
-
-# Build rule for target.
-ExperimentalSubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalSubmit
-.PHONY : ExperimentalSubmit
-
-# fast build rule for target.
-ExperimentalSubmit/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/build
-.PHONY : ExperimentalSubmit/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalMemCheck
-
-# Build rule for target.
-ExperimentalMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalMemCheck
-.PHONY : ExperimentalMemCheck
-
-# fast build rule for target.
-ExperimentalMemCheck/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalMemCheck.dir/build.make CMakeFiles/ExperimentalMemCheck.dir/build
-.PHONY : ExperimentalMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalTest
-
-# Build rule for target.
-ExperimentalTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalTest
-.PHONY : ExperimentalTest
-
-# fast build rule for target.
-ExperimentalTest/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalTest.dir/build.make CMakeFiles/ExperimentalTest.dir/build
-.PHONY : ExperimentalTest/fast
-
-#=============================================================================
-# Target rules for targets named NightlyUpdate
-
-# Build rule for target.
-NightlyUpdate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyUpdate
-.PHONY : NightlyUpdate
-
-# fast build rule for target.
-NightlyUpdate/fast:
-	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
-.PHONY : NightlyUpdate/fast
-
-#=============================================================================
-# Target rules for targets named NightlyStart
-
-# Build rule for target.
-NightlyStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyStart
-.PHONY : NightlyStart
-
-# fast build rule for target.
-NightlyStart/fast:
-	$(MAKE) -f CMakeFiles/NightlyStart.dir/build.make CMakeFiles/NightlyStart.dir/build
-.PHONY : NightlyStart/fast
-
-#=============================================================================
-# Target rules for targets named NightlyMemoryCheck
-
-# Build rule for target.
-NightlyMemoryCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemoryCheck
-.PHONY : NightlyMemoryCheck
-
-# fast build rule for target.
-NightlyMemoryCheck/fast:
-	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
-.PHONY : NightlyMemoryCheck/fast
-
-#=============================================================================
-# Target rules for targets named NightlyBuild
-
-# Build rule for target.
-NightlyBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyBuild
-.PHONY : NightlyBuild
-
-# fast build rule for target.
-NightlyBuild/fast:
-	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
-.PHONY : NightlyBuild/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalUpdate
-
-# Build rule for target.
-ExperimentalUpdate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalUpdate
-.PHONY : ExperimentalUpdate
-
-# fast build rule for target.
-ExperimentalUpdate/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/build
-.PHONY : ExperimentalUpdate/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousBuild
-
-# Build rule for target.
-ContinuousBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousBuild
-.PHONY : ContinuousBuild
-
-# fast build rule for target.
-ContinuousBuild/fast:
-	$(MAKE) -f CMakeFiles/ContinuousBuild.dir/build.make CMakeFiles/ContinuousBuild.dir/build
-.PHONY : ContinuousBuild/fast
-
-#=============================================================================
-# Target rules for targets named Continuous
-
-# Build rule for target.
-Continuous: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Continuous
-.PHONY : Continuous
-
-# fast build rule for target.
-Continuous/fast:
-	$(MAKE) -f CMakeFiles/Continuous.dir/build.make CMakeFiles/Continuous.dir/build
-.PHONY : Continuous/fast
-
-#=============================================================================
-# Target rules for targets named Experimental
-
-# Build rule for target.
-Experimental: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Experimental
-.PHONY : Experimental
-
-# fast build rule for target.
-Experimental/fast:
-	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
-.PHONY : Experimental/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalConfigure
-
-# Build rule for target.
-ExperimentalConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalConfigure
-.PHONY : ExperimentalConfigure
-
-# fast build rule for target.
-ExperimentalConfigure/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalConfigure.dir/build.make CMakeFiles/ExperimentalConfigure.dir/build
-.PHONY : ExperimentalConfigure/fast
-
-#=============================================================================
-# Target rules for targets named NightlyTest
-
-# Build rule for target.
-NightlyTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyTest
-.PHONY : NightlyTest
-
-# fast build rule for target.
-NightlyTest/fast:
-	$(MAKE) -f CMakeFiles/NightlyTest.dir/build.make CMakeFiles/NightlyTest.dir/build
-.PHONY : NightlyTest/fast
-
-#=============================================================================
-# Target rules for targets named NightlyCoverage
-
-# Build rule for target.
-NightlyCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyCoverage
-.PHONY : NightlyCoverage
-
-# fast build rule for target.
-NightlyCoverage/fast:
-	$(MAKE) -f CMakeFiles/NightlyCoverage.dir/build.make CMakeFiles/NightlyCoverage.dir/build
-.PHONY : NightlyCoverage/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalCoverage
-
-# Build rule for target.
-ExperimentalCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalCoverage
-.PHONY : ExperimentalCoverage
-
-# fast build rule for target.
-ExperimentalCoverage/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
-.PHONY : ExperimentalCoverage/fast
-
-#=============================================================================
-# Target rules for targets named NightlyMemCheck
-
-# Build rule for target.
-NightlyMemCheck: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyMemCheck
-.PHONY : NightlyMemCheck
-
-# fast build rule for target.
-NightlyMemCheck/fast:
-	$(MAKE) -f CMakeFiles/NightlyMemCheck.dir/build.make CMakeFiles/NightlyMemCheck.dir/build
-.PHONY : NightlyMemCheck/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousStart
-
-# Build rule for target.
-ContinuousStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousStart
-.PHONY : ContinuousStart
-
-# fast build rule for target.
-ContinuousStart/fast:
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
-.PHONY : ContinuousStart/fast
-
-#=============================================================================
-# Target rules for targets named NightlySubmit
-
-# Build rule for target.
-NightlySubmit: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlySubmit
-.PHONY : NightlySubmit
-
-# fast build rule for target.
-NightlySubmit/fast:
-	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
-.PHONY : NightlySubmit/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousCoverage
-
-# Build rule for target.
-ContinuousCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousCoverage
-.PHONY : ContinuousCoverage
-
-# fast build rule for target.
-ContinuousCoverage/fast:
-	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
-.PHONY : ContinuousCoverage/fast
-
-#=============================================================================
-# Target rules for targets named Nightly
-
-# Build rule for target.
-Nightly: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Nightly
-.PHONY : Nightly
-
-# fast build rule for target.
-Nightly/fast:
-	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
-.PHONY : Nightly/fast
-
-#=============================================================================
-# Target rules for targets named NightlyConfigure
-
-# Build rule for target.
-NightlyConfigure: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyConfigure
-.PHONY : NightlyConfigure
-
-# fast build rule for target.
-NightlyConfigure/fast:
-	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
-.PHONY : NightlyConfigure/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalStart
-
-# Build rule for target.
-ExperimentalStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalStart
-.PHONY : ExperimentalStart
-
-# fast build rule for target.
-ExperimentalStart/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
-.PHONY : ExperimentalStart/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousTest
-
-# Build rule for target.
-ContinuousTest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousTest
-.PHONY : ContinuousTest
-
-# fast build rule for target.
-ContinuousTest/fast:
-	$(MAKE) -f CMakeFiles/ContinuousTest.dir/build.make CMakeFiles/ContinuousTest.dir/build
-.PHONY : ContinuousTest/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousUpdate
-
-# Build rule for target.
-ContinuousUpdate: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousUpdate
-.PHONY : ContinuousUpdate
-
-# fast build rule for target.
-ContinuousUpdate/fast:
-	$(MAKE) -f CMakeFiles/ContinuousUpdate.dir/build.make CMakeFiles/ContinuousUpdate.dir/build
-.PHONY : ContinuousUpdate/fast
-
-#=============================================================================
-# Target rules for targets named ExperimentalBuild
-
-# Build rule for target.
-ExperimentalBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalBuild
-.PHONY : ExperimentalBuild
-
-# fast build rule for target.
-ExperimentalBuild/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalBuild.dir/build.make CMakeFiles/ExperimentalBuild.dir/build
-.PHONY : ExperimentalBuild/fast
+Enemy.o: Enemy.cpp.o
+
+.PHONY : Enemy.o
+
+# target to build an object file
+Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Enemy.cpp.o
+.PHONY : Enemy.cpp.o
+
+Enemy.i: Enemy.cpp.i
+
+.PHONY : Enemy.i
+
+# target to preprocess a source file
+Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Enemy.cpp.i
+.PHONY : Enemy.cpp.i
+
+Enemy.s: Enemy.cpp.s
+
+.PHONY : Enemy.s
+
+# target to generate assembly for a file
+Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Enemy.cpp.s
+.PHONY : Enemy.cpp.s
+
+Entity.o: Entity.cpp.o
+
+.PHONY : Entity.o
+
+# target to build an object file
+Entity.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Entity.cpp.o
+.PHONY : Entity.cpp.o
+
+Entity.i: Entity.cpp.i
+
+.PHONY : Entity.i
+
+# target to preprocess a source file
+Entity.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Entity.cpp.i
+.PHONY : Entity.cpp.i
+
+Entity.s: Entity.cpp.s
+
+.PHONY : Entity.s
+
+# target to generate assembly for a file
+Entity.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Entity.cpp.s
+.PHONY : Entity.cpp.s
+
+Fonts.o: Fonts.cpp.o
+
+.PHONY : Fonts.o
+
+# target to build an object file
+Fonts.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Fonts.cpp.o
+.PHONY : Fonts.cpp.o
+
+Fonts.i: Fonts.cpp.i
+
+.PHONY : Fonts.i
+
+# target to preprocess a source file
+Fonts.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Fonts.cpp.i
+.PHONY : Fonts.cpp.i
+
+Fonts.s: Fonts.cpp.s
+
+.PHONY : Fonts.s
+
+# target to generate assembly for a file
+Fonts.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Fonts.cpp.s
+.PHONY : Fonts.cpp.s
+
+Game.o: Game.cpp.o
+
+.PHONY : Game.o
+
+# target to build an object file
+Game.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Game.cpp.o
+.PHONY : Game.cpp.o
+
+Game.i: Game.cpp.i
+
+.PHONY : Game.i
+
+# target to preprocess a source file
+Game.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Game.cpp.i
+.PHONY : Game.cpp.i
+
+Game.s: Game.cpp.s
+
+.PHONY : Game.s
+
+# target to generate assembly for a file
+Game.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Game.cpp.s
+.PHONY : Game.cpp.s
+
+Heal.o: Heal.cpp.o
+
+.PHONY : Heal.o
+
+# target to build an object file
+Heal.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Heal.cpp.o
+.PHONY : Heal.cpp.o
+
+Heal.i: Heal.cpp.i
+
+.PHONY : Heal.i
+
+# target to preprocess a source file
+Heal.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Heal.cpp.i
+.PHONY : Heal.cpp.i
+
+Heal.s: Heal.cpp.s
+
+.PHONY : Heal.s
+
+# target to generate assembly for a file
+Heal.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Heal.cpp.s
+.PHONY : Heal.cpp.s
+
+Music.o: Music.cpp.o
+
+.PHONY : Music.o
+
+# target to build an object file
+Music.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Music.cpp.o
+.PHONY : Music.cpp.o
+
+Music.i: Music.cpp.i
+
+.PHONY : Music.i
+
+# target to preprocess a source file
+Music.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Music.cpp.i
+.PHONY : Music.cpp.i
+
+Music.s: Music.cpp.s
+
+.PHONY : Music.s
+
+# target to generate assembly for a file
+Music.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Music.cpp.s
+.PHONY : Music.cpp.s
+
+Pickup.o: Pickup.cpp.o
+
+.PHONY : Pickup.o
+
+# target to build an object file
+Pickup.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Pickup.cpp.o
+.PHONY : Pickup.cpp.o
+
+Pickup.i: Pickup.cpp.i
+
+.PHONY : Pickup.i
+
+# target to preprocess a source file
+Pickup.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Pickup.cpp.i
+.PHONY : Pickup.cpp.i
+
+Pickup.s: Pickup.cpp.s
+
+.PHONY : Pickup.s
+
+# target to generate assembly for a file
+Pickup.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Pickup.cpp.s
+.PHONY : Pickup.cpp.s
+
+Player.o: Player.cpp.o
+
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
+Powerup.o: Powerup.cpp.o
+
+.PHONY : Powerup.o
+
+# target to build an object file
+Powerup.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Powerup.cpp.o
+.PHONY : Powerup.cpp.o
+
+Powerup.i: Powerup.cpp.i
+
+.PHONY : Powerup.i
+
+# target to preprocess a source file
+Powerup.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Powerup.cpp.i
+.PHONY : Powerup.cpp.i
+
+Powerup.s: Powerup.cpp.s
+
+.PHONY : Powerup.s
+
+# target to generate assembly for a file
+Powerup.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Powerup.cpp.s
+.PHONY : Powerup.cpp.s
+
+Projectile.o: Projectile.cpp.o
+
+.PHONY : Projectile.o
+
+# target to build an object file
+Projectile.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Projectile.cpp.o
+.PHONY : Projectile.cpp.o
+
+Projectile.i: Projectile.cpp.i
+
+.PHONY : Projectile.i
+
+# target to preprocess a source file
+Projectile.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Projectile.cpp.i
+.PHONY : Projectile.cpp.i
+
+Projectile.s: Projectile.cpp.s
+
+.PHONY : Projectile.s
+
+# target to generate assembly for a file
+Projectile.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Projectile.cpp.s
+.PHONY : Projectile.cpp.s
+
+Random.o: Random.cpp.o
+
+.PHONY : Random.o
+
+# target to build an object file
+Random.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Random.cpp.o
+.PHONY : Random.cpp.o
+
+Random.i: Random.cpp.i
+
+.PHONY : Random.i
+
+# target to preprocess a source file
+Random.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Random.cpp.i
+.PHONY : Random.cpp.i
+
+Random.s: Random.cpp.s
+
+.PHONY : Random.s
+
+# target to generate assembly for a file
+Random.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Random.cpp.s
+.PHONY : Random.cpp.s
+
+Room.o: Room.cpp.o
+
+.PHONY : Room.o
+
+# target to build an object file
+Room.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Room.cpp.o
+.PHONY : Room.cpp.o
+
+Room.i: Room.cpp.i
+
+.PHONY : Room.i
+
+# target to preprocess a source file
+Room.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Room.cpp.i
+.PHONY : Room.cpp.i
+
+Room.s: Room.cpp.s
+
+.PHONY : Room.s
+
+# target to generate assembly for a file
+Room.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Room.cpp.s
+.PHONY : Room.cpp.s
+
+Spell.o: Spell.cpp.o
+
+.PHONY : Spell.o
+
+# target to build an object file
+Spell.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Spell.cpp.o
+.PHONY : Spell.cpp.o
+
+Spell.i: Spell.cpp.i
+
+.PHONY : Spell.i
+
+# target to preprocess a source file
+Spell.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Spell.cpp.i
+.PHONY : Spell.cpp.i
+
+Spell.s: Spell.cpp.s
+
+.PHONY : Spell.s
+
+# target to generate assembly for a file
+Spell.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Spell.cpp.s
+.PHONY : Spell.cpp.s
+
+TextDisplay.o: TextDisplay.cpp.o
+
+.PHONY : TextDisplay.o
+
+# target to build an object file
+TextDisplay.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/TextDisplay.cpp.o
+.PHONY : TextDisplay.cpp.o
+
+TextDisplay.i: TextDisplay.cpp.i
+
+.PHONY : TextDisplay.i
+
+# target to preprocess a source file
+TextDisplay.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/TextDisplay.cpp.i
+.PHONY : TextDisplay.cpp.i
+
+TextDisplay.s: TextDisplay.cpp.s
+
+.PHONY : TextDisplay.s
+
+# target to generate assembly for a file
+TextDisplay.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/TextDisplay.cpp.s
+.PHONY : TextDisplay.cpp.s
+
+Textures.o: Textures.cpp.o
+
+.PHONY : Textures.o
+
+# target to build an object file
+Textures.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Textures.cpp.o
+.PHONY : Textures.cpp.o
+
+Textures.i: Textures.cpp.i
+
+.PHONY : Textures.i
+
+# target to preprocess a source file
+Textures.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Textures.cpp.i
+.PHONY : Textures.cpp.i
+
+Textures.s: Textures.cpp.s
+
+.PHONY : Textures.s
+
+# target to generate assembly for a file
+Textures.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Textures.cpp.s
+.PHONY : Textures.cpp.s
+
+Vectors.o: Vectors.cpp.o
+
+.PHONY : Vectors.o
+
+# target to build an object file
+Vectors.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Vectors.cpp.o
+.PHONY : Vectors.cpp.o
+
+Vectors.i: Vectors.cpp.i
+
+.PHONY : Vectors.i
+
+# target to preprocess a source file
+Vectors.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Vectors.cpp.i
+.PHONY : Vectors.cpp.i
+
+Vectors.s: Vectors.cpp.s
+
+.PHONY : Vectors.s
+
+# target to generate assembly for a file
+Vectors.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Vectors.cpp.s
+.PHONY : Vectors.cpp.s
+
+Wall.o: Wall.cpp.o
+
+.PHONY : Wall.o
+
+# target to build an object file
+Wall.cpp.o:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Wall.cpp.o
+.PHONY : Wall.cpp.o
+
+Wall.i: Wall.cpp.i
+
+.PHONY : Wall.i
+
+# target to preprocess a source file
+Wall.cpp.i:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Wall.cpp.i
+.PHONY : Wall.cpp.i
+
+Wall.s: Wall.cpp.s
+
+.PHONY : Wall.s
+
+# target to generate assembly for a file
+Wall.cpp.s:
+	$(MAKE) -f CMakeFiles/rpgsfml.dir/build.make CMakeFiles/rpgsfml.dir/Wall.cpp.s
+.PHONY : Wall.cpp.s
 
 main.o: main.cpp.o
 
@@ -553,40 +615,60 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... package"
-	@echo "... test"
-	@echo "... rebuild_cache"
-	@echo "... ContinuousSubmit"
-	@echo "... ContinuousMemCheck"
-	@echo "... ContinuousConfigure"
-	@echo "... rpgsfml"
-	@echo "... ExperimentalSubmit"
-	@echo "... ExperimentalMemCheck"
-	@echo "... ExperimentalTest"
-	@echo "... NightlyUpdate"
-	@echo "... NightlyStart"
-	@echo "... NightlyMemoryCheck"
-	@echo "... NightlyBuild"
-	@echo "... ExperimentalUpdate"
-	@echo "... ContinuousBuild"
-	@echo "... Continuous"
-	@echo "... Experimental"
-	@echo "... package_source"
-	@echo "... ExperimentalConfigure"
 	@echo "... edit_cache"
-	@echo "... NightlyTest"
-	@echo "... NightlyCoverage"
-	@echo "... ExperimentalCoverage"
-	@echo "... NightlyMemCheck"
-	@echo "... ContinuousStart"
-	@echo "... NightlySubmit"
-	@echo "... ContinuousCoverage"
-	@echo "... Nightly"
-	@echo "... NightlyConfigure"
-	@echo "... ExperimentalStart"
-	@echo "... ContinuousTest"
-	@echo "... ContinuousUpdate"
-	@echo "... ExperimentalBuild"
+	@echo "... rpgsfml"
+	@echo "... rebuild_cache"
+	@echo "... Enemy.o"
+	@echo "... Enemy.i"
+	@echo "... Enemy.s"
+	@echo "... Entity.o"
+	@echo "... Entity.i"
+	@echo "... Entity.s"
+	@echo "... Fonts.o"
+	@echo "... Fonts.i"
+	@echo "... Fonts.s"
+	@echo "... Game.o"
+	@echo "... Game.i"
+	@echo "... Game.s"
+	@echo "... Heal.o"
+	@echo "... Heal.i"
+	@echo "... Heal.s"
+	@echo "... Music.o"
+	@echo "... Music.i"
+	@echo "... Music.s"
+	@echo "... Pickup.o"
+	@echo "... Pickup.i"
+	@echo "... Pickup.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
+	@echo "... Powerup.o"
+	@echo "... Powerup.i"
+	@echo "... Powerup.s"
+	@echo "... Projectile.o"
+	@echo "... Projectile.i"
+	@echo "... Projectile.s"
+	@echo "... Random.o"
+	@echo "... Random.i"
+	@echo "... Random.s"
+	@echo "... Room.o"
+	@echo "... Room.i"
+	@echo "... Room.s"
+	@echo "... Spell.o"
+	@echo "... Spell.i"
+	@echo "... Spell.s"
+	@echo "... TextDisplay.o"
+	@echo "... TextDisplay.i"
+	@echo "... TextDisplay.s"
+	@echo "... Textures.o"
+	@echo "... Textures.i"
+	@echo "... Textures.s"
+	@echo "... Vectors.o"
+	@echo "... Vectors.i"
+	@echo "... Vectors.s"
+	@echo "... Wall.o"
+	@echo "... Wall.i"
+	@echo "... Wall.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
