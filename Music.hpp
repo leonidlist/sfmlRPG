@@ -9,6 +9,7 @@ class Music {
     sf::Music coinSound;
     sf::Music echoSlamSound;
     sf::Music collisionSound;
+    sf::Music die;
 public:
     Music();
     sf::Music& getMainTheme();
@@ -16,6 +17,7 @@ public:
     sf::Music& getCoinSound();
     sf::Music& getEchoSlamSound();
     sf::Music& getCollisionSound();
+    sf::Music& getDie();
 };
 
 #endif

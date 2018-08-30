@@ -4,9 +4,8 @@ Music::Music() {
     if(!mainTheme.openFromFile("mainTheme2.wav")) {
         throw std::runtime_error("Cannot open audio.");
     }
-    mainTheme.setVolume(4);
+    mainTheme.setVolume(10);
     mainTheme.setLoop(true);
-    mainTheme.play();
     if(!shotSound.openFromFile("fireballSound.wav")) {
         throw std::runtime_error("Cannot open audio.");
     }
@@ -24,6 +23,11 @@ Music::Music() {
         throw std::runtime_error("Cannot open audio.");
     }
     collisionSound.setVolume(60);
+    if(!die.openFromFile("die.wav")) {
+        throw std::runtime_error("Cannot open audio.");
+    }
+    die.setVolume(30);
+    die.setLoop(true);
 }
 
 sf::Music& Music::getMainTheme() {
@@ -44,4 +48,8 @@ sf::Music& Music::getEchoSlamSound() {
 
 sf::Music& Music::getCollisionSound() {
     return collisionSound;
+}
+
+sf::Music& Music::getDie() {
+    return die;
 }

@@ -467,7 +467,7 @@ void Game::destroyProjectile() {
 }
 
 void Game::fire(sf::Clock& clock1, sf::Time& elapsed1, bool isFocused, sf::TcpSocket& skt) {
-    if(elapsed1.asSeconds() >= 0.3 && isFocused) {
+    if(elapsed1.asSeconds() >= 0.14 && isFocused && player1.hp > 0) {
         clock1.restart();
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             projectile.direction = player1.direction;
@@ -613,5 +613,29 @@ void Game::checkEnemyAmount() {
         Enemy::spawnEnemies(6, gameVectors.getRoomVector()[1], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
         Enemy::spawnEnemies(6, gameVectors.getRoomVector()[2], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
         Enemy::spawnEnemies(6, gameVectors.getRoomVector()[3], gameVectors.getEnemyVector(), gameTextures.getEnemyTexture(), gameFonts.getTextFont());
+    }
+}
+
+bool Game::checkDeath() {
+    if(player1.hp <= 0) {
+        sf::Text dieText;
+        dieText.setString("U DIED! PRESS R TO RESTART.");
+        dieText.setFont(gameFonts.getTextFont());
+        dieText.setPosition(view.getCenter().x-250,view.getCenter().y-150);
+        window.draw(dieText);
+        player1.canMoveDown = false;
+        player1.canMoveLeft = false;
+        player1.canMoveRight = false;
+        player1.canMoveUp = false;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+            player1.hp = 100;
+            player1.rect.setPosition(300, 300);
+            player1.update();
+            return false;
+        }
+        return true;
+    }
+    else {
+        return false;
     }
 }

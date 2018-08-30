@@ -14,7 +14,7 @@ public:
     bool canMoveLeft = true;
     bool canMoveRight = true;
 
-    int attackDamage = 25;
+    int attackDamage = 15;
     int powerupLevel = 0;
 
     int hp = 100;

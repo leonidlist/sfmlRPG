@@ -15,7 +15,7 @@ public:
     bool canMoveLeft = true;
     bool canMoveRight = true;
 
-    int attackDamage = 1;
+    int attackDamage = 3;
 
     int counterWalking = 0;
     int direction = 0;

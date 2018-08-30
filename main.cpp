@@ -12,6 +12,7 @@ int main(int, char const**)
     sf::Clock clock2;
     sf::Clock clock3;
     bool isFocused = true;
+    bool isDie = false;
     sf::Clock coolDown;
     sf::Clock echoSlamCoolDown;
 
@@ -52,8 +53,26 @@ int main(int, char const**)
 
     //******************************************* MAIN LOOP ****************************************************************************8
 
+    int c = 0;
+    int d = 0;
     while (MAINGAME.getWindow().isOpen())
     {
+        if(isDie) {
+            if(d == 0) {
+                std::cout << "isDie = true" << std::endl;
+                MAINGAME.getMusic().getMainTheme().stop();
+                MAINGAME.getMusic().getDie().play();
+                d++;
+            }
+            c = 0;
+        }
+        else if(!isDie && c == 0) {
+            MAINGAME.getMusic().getDie().stop();
+            MAINGAME.getMusic().getMainTheme().play();
+            c++;
+            d = 0;
+        }
+           
         sf::Time elapsed1 = clock1.getElapsedTime();
         sf::Time elapsed2 = clock2.getElapsedTime();
         sf::Time elapsed3 = clock3.getElapsedTime();
@@ -84,8 +103,8 @@ int main(int, char const**)
 
         MAINGAME.getWindow().clear(sf::Color::Black);
 
-        MAINGAME.drawWalls();
         MAINGAME.drawPlayers();
+        MAINGAME.drawWalls();
         MAINGAME.drawProjectiles();
         MAINGAME.drawEnemies();
         MAINGAME.drawCoins();
@@ -103,8 +122,12 @@ int main(int, char const**)
         MAINGAME.wallProjectileCollision();
         MAINGAME.enemyPlayerCollision(clock2, elapsed2);
         MAINGAME.resetLimits();
+
+        isDie = MAINGAME.checkDeath();
         
-        MAINGAME.aggro(clock3, elapsed3);
+        if(!isDie) {
+            MAINGAME.aggro(clock3, elapsed3);
+        }
 
         MAINGAME.destroyPowerup();
         MAINGAME.destroyWall();

@@ -97,6 +97,7 @@ public:
     void textManipulations();
 
     void checkEnemyAmount();
+    bool checkDeath();
 
     void resetLimits();
 };
